@@ -1,0 +1,28 @@
+//secant method
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#define f(x) x-cos(x)
+int main()
+{
+    float x,a,b,c,f0,f1,f2,e=0.0001;
+    int step=1;
+    printf("enter the value of a & b:");
+    scanf("%f %f",&a,&b);
+    printf("\nstep\t\ta\t\tb\t\tc\t\tf(c)\n");
+    do {
+    f0=f(a);
+    f1=f(b);
+    c=(a*f1-b*f0)/(f1-f0);
+    f2=f(c);
+    printf("%d\t\t%f\t%f\t%f\t%f\n",step, a,b,c, f2);
+    a=b;
+    b=c;
+    step++;
+    }
+     while(fabs((c-a)/c)>e);
+					{
+          printf("\nthe value of root is :%f",c);
+          }
+          return 0;
+          }
