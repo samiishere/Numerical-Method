@@ -1,0 +1,32 @@
+//lagrange interpolation
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+int main()
+{
+    int n,i,j;
+    float x[10],f[10],l[10],xp,p;
+    printf("enter the degree of polynomial:");
+    scanf("%d",&n);
+    printf("enter the value of x and fx respectively:");
+    for(i=0;i<n;i++)
+    {
+    	scanf("%f%f",&x[i],&f[i]);
+    }
+    printf("enter the interpolation value:");
+    scanf("%f",&xp);
+    for(i=0;i<n;i++)
+    {
+    	l[i]=1;
+    	for(j=0;j<n;j++)
+    	{
+    		if(i!=j)
+			{
+					l[i]=l[i]*((xp-x[j])/(x[i]-x[j]));
+    		}
+    	}
+    	p=p+f[i]*l[i];
+    }
+    printf("the result is:%f",p);
+    return 0;
+}
