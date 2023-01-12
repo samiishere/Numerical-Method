@@ -1,0 +1,24 @@
+//fixedpoint iteration method
+#include<stdio.h>
+#include<math.h>
+#define f(x) pow(x,3)+ pow(x,2)-1
+#define g(x) 1/(sqrt(x+1))
+int main()
+{
+    clrscr();
+	float e=0.0001,x1,x0;
+	clrscr();
+	printf("enter the initial guess:");
+	scanf("%f",&x0);
+	int step=1;
+	do
+	{
+		x1=g(x0);
+		step=step+1;
+		x0=x1;
+	}
+	while(fabs(f(x1))>e);
+	printf("root is:%f",x1);
+	getch;
+	return 0;
+} 
